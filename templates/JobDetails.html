@@ -1,0 +1,55 @@
+{% extends 'Header.html' %}
+{% block content %}
+
+<head>
+    <style>
+        body{
+            background: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+        }
+        .details{
+            background: #fff;
+            padding: 7px;
+            margin: 10px;
+            border-radius: 6px;
+            width: 80%;  
+            position: relative;
+            left: 5%;
+        }
+        h3{
+            font-size: 24px;
+            text-align: center;
+            
+        }
+        .details h4{
+            color: #00aaff;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>{{ jobdetails.title }} job details</h3>
+        <div class="details">
+            <h4>{{ jobdetails.title }}</h4>
+            <p><strong>Brief job description: </strong>{{ jobdetails.description }}</p>
+            <p><strong>Category: </strong>{{ jobdetails.category }}</p>
+            <p><strong>Hiring company: </strong>{{ jobdetails.company }}</p>
+            <p><strong>Job type: </strong>
+                {% if jobdetails.jobtype == "FT" %}
+                    Full Time
+                {% elif jobdetails.jobtype == "PT" %}
+                    Part Time
+                {% endif %}
+            </p>
+            <p><strong>Company email: </strong>{{ jobdetails.email }}</p>
+            <p><strong>Company contact: </strong>{{ jobdetails.contact }}</p>
+            <p><strong>Job qualifications: </strong>{{ jobdetails.qualifications }}</p>
+            <p><strong>Job skills required: </strong>{{ jobdetails.skills }}</p>
+        </div>
+        
+    </div>
+</body>
+
+
+{% endblock %}

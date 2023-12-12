@@ -1,0 +1,53 @@
+{% extends 'Header.html' %}
+{% block content %}
+
+<head>
+    <style>
+        body{
+            background: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+        }
+        .heading{
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .job{
+            background: #fff;
+            padding: 7px;
+            margin: 10px;
+            border-radius: 6px;
+            width: 80%;
+            border-left: 4px solid #00aaff;
+        }
+        .job h4{
+            color: #00aaff;
+            font-size: 1.1em;
+        }
+        .job p{
+            line-height: 10px;
+        }
+        .job a{
+            text-decoration: none;
+            color: #fff;
+            background: #00aaff;
+            padding: 6px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3 class="heading">Job listings</h3>
+        {% for job in jobs %}
+            <div class="job">
+                <h4>{{ job.title }}</h4>
+                <p><strong>Brief job description:</strong>{{ job.description }}</p>
+                <p><strong>Hiring company:</strong>{{ job.company }}</p>
+                <p><strong>Location:</strong>{{ job.location }}</p>
+                <a href="{% url 'jobdetails' job.id %}">View Job details</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
+{% endblock %}

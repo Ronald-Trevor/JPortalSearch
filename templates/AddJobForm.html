@@ -1,0 +1,93 @@
+{% extends 'Header.html' %}
+{% block content %}
+
+<head>
+    <style>
+        body{
+            background: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+        }
+        form{
+            background: #fff;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        label{
+            display: block;
+            font-size: 1em;
+        }
+        input,textarea,select {
+            padding: 10px;
+            outline: none;
+            margin: 5px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #9f9b9b;
+            background: #f1f1f1;
+        }
+        form h3{
+            font-size: 24px;
+            text-align: center;
+            
+        }
+        button{
+            border: 0px;
+            padding: 10px;
+            color: #fff;
+            background: #00aaff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .message{
+            color: #ff0000;
+            border: 1px solid #ff0000;
+            border-radius: 4px;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <form action="{% url 'addjob' %}" method="post">
+            {% csrf_token %}
+            <h3>Add job</h3>
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <p class="message">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <label for="title">Job title</label>
+            <input type="text" name="title">
+            <label for="description">Job description</label>
+            <textarea name="description" id="description" cols="30" rows="3" placeholder="Add job description"></textarea>
+            <label for="category">Job category</label>
+            <input type="text" name="category">
+            <select name="jobtype" id="jobtype">
+                <option value="Full time">Full time</option>
+                <option value="Part time">Part time</option>
+            </select>
+            <label for="company">Hiring company</label>
+            <input type="text" name="company">
+            <label for="email">Company email</label>
+            <input type="text" name="email">
+            <label for="contact">Company contact</label>
+            <input type="text" name="contact">
+            <label for="location">Job location</label>
+            <input type="text" name="location">
+            <label for="qualifications">Job qualifications</label>
+            <textarea name="qualifications" id="qualifications" cols="30" rows="5" placeholder="Add Job qualifications"></textarea>
+            <label for="skills">Job skills</label>
+            <textarea name="skills" id="skills" cols="30" rows="5" placeholder="Add job skills"></textarea>
+            <button type="submit">Add job</button>
+            
+        </form>
+    </div>
+</body>
+
+{% endblock %}

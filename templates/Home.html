@@ -1,0 +1,59 @@
+{% extends 'Header.html' %}
+{% block content %}
+
+<head>
+    <style>
+         body{
+            background: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+        }
+        .home{
+            background: #fff;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            padding-bottom: 40px;
+        }
+        .welcome h4{
+            font-size: 70px;
+            font-style: italic;
+        }
+        .image img{
+            margin-top: 30px;
+            margin-left: 20px;
+            border-radius: 8px;
+        }
+        .site{
+            color: #00aaff;
+        }
+        .welmessage{
+            display: inline;
+            position: relative;
+            left: 10px;
+            top: 20px;
+        }
+        .welcome a{
+            text-decoration: none;
+            color: #fff;
+            background: #00aaff;
+            padding: 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="home">
+        <div class="welcome">
+            <h4>Welcome to the <span class="site">Jobs Portal</span></h4>
+            <div class="welmessage">
+                <span>Looking for available jobs?</span>
+                <a href="{% url 'jobs' %}">View available jobs</a>
+            </div>
+        </div>
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8am9ic3xlbnwwfHwwfHx8MA%3D%3D" alt="homeimage">
+        </div>
+    </div>
+</body>
+
+{% endblock %}
