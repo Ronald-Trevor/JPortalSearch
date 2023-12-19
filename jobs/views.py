@@ -6,15 +6,11 @@ from django.contrib import messages
 
 # Create your views here.
 def jobs(request):
-
     # fetch the posted jobs
     jobs = Job.objects.all()
     return render (request, 'Jobs.html', {
         'jobs':jobs
     })
-
-
-
 
 def home(request):
     return render (request, 'Home.html')
