@@ -27,14 +27,18 @@ SECRET_KEY = 'django-insecure-u^4sxjwt-t%hx4)e^pn8pvi9iysp$!9e8c4hu$)&tvg5v3i(99
 DEBUG = True
 
 # Use secure cookies for session
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 
 # Use Django's default session engine
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 SESSION_COOKIE_AGE = 60 * 60 * 24  # Set session timeout 
 
-SESSION_COOKIE_HTTPONLY = False
+# The session cookie cannot be accessed by JavaScript code running on the client's browser
+SESSION_COOKIE_HTTPONLY = True
+
+# Creating a set of rules that define which content sources are allowed and which are blocked
+CSP_DEFAULT_SRC = ("'self'",)
 
 
 

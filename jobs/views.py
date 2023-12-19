@@ -2,23 +2,11 @@ from django.http import HttpResponseBadRequest
 from django.shortcuts import render,redirect
 from . models import Job
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-import re
+
 
 # Create your views here.
-@login_required
 def jobs(request):
-    # Sanitize and validate user inputs
-    session_id = request.GET.get('session_id')
-    user_id = request.GET.get('user_id')
 
-    # Check for valid session ID format
-    if not re.match(r'[0-9a-f]{32}', session_id):
-        return HttpResponseBadRequest('Invalid session ID format')
-
-    # Check for valid user ID format
-    if not re.match(r'[0-9]+', user_id):
-        return HttpResponseBadRequest('Invalid user ID format')
     # fetch the posted jobs
     jobs = Job.objects.all()
     return render (request, 'Jobs.html', {
@@ -73,15 +61,3 @@ def jobdetails(request,id):
 
 
 
-def my_view(request):
-    # Sanitize and validate user inputs
-    session_id = request.GET.get('session_id')
-    user_id = request.GET.get('user_id')
-
-    # Check for valid session ID format
-    if not re.match(r'[0-9a-f]{32}', session_id):
-        return HttpResponseBadRequest('Invalid session ID format')
-
-    # Check for valid user ID format
-    if not re.match(r'[0-9]+', user_id):
-        return HttpResponseBadRequest('Invalid user ID format')
