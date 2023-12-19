@@ -48,7 +48,7 @@ def addjob(request):
     return render (request, 'AddJobForm.html')
 
 
-# fetch job deatails for a specific job
+# fetch job details for a specific job
 def jobdetails(request,id):
     jobdetails = Job.objects.get(id=id)
     return render (request, 'JobDetails.html',{
